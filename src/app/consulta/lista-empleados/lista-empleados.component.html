@@ -1,0 +1,28 @@
+<div class="contenedor">
+    <h2>Lista de Empleados</h2>
+    <ul class="list-group">
+        <li *ngFor="let empleado of listaEmpleados" class="list-group-item list-group-item-action" (click)="editar(empleado)" [class.active]="empleado == seleccionaEmpleado">
+        <span style="color: aqua;">{{empleado.id}}</span> .- {{empleado.name}} - {{empleado.edad}} - {{empleado.empresa}}
+        </li>
+    </ul>
+    <div>
+        Ingresar empleado
+    </div>
+    <div clas="form-group">
+        <input type="text" [(ngModel)]="seleccionaEmpleado.name" placeholder="Ingresa Nombre" class="form-control"/>
+    </div>
+    <div clas="form-group">
+        <input type="number" [(ngModel)]="seleccionaEmpleado.edad" placeholder="Ingresa edad" class="form-control"/>
+    </div>
+    <div clas="form-group">
+        <input type="text" [(ngModel)]="seleccionaEmpleado.empresa" placeholder="Ingresa empresa" class="form-control"/>
+    </div>
+    <button (click)="ageragarEditar()">
+        Submit
+    </button>
+    <button *ngIf="seleccionaEmpleado.id !== 0" 
+        class="btn btn-danger" (click)="eliminar()">
+        Elimina
+    </button>
+</div>
+
